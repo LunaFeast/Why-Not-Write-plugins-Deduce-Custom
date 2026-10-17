@@ -1,6 +1,6 @@
 /* wnw-custom 这一家自己的出包命令（插件分离第 5 批）
    ------------------------------------------------------------
-     node 出包.mjs                      主程序那一棵就在旁边同一层（..\\Flow-Desk-1.0）时
+     node 出包.mjs                      主程序那一棵就在上一格（<开发那一摊>\flow-desk）时
      node 出包.mjs --主仓=一处目录        主程序那一棵在别处
      node 出包.mjs --出=一处目录          容器要落在别处（默认落本仓 dist\\）
 
@@ -37,7 +37,7 @@ if(内){
     console.log('内核出好了（源码那几份现场拼的一段）· ' + 内.装名 + ' ' + Buffer.byteLength(文) + ' 字节');
   } else throw new Error('这一家的内核那一格写得不全：既没有"出"也没有"那颗"');
 }
-const 猜 = [process.env.FD_MAIN, path.join(path.dirname(仓), 'Flow-Desk-1.0')]
+const 猜 = [process.env.FD_MAIN, path.join(path.dirname(path.dirname(仓)), 'flow-desk')]   /* 主程序那一棵在插件格上面那一格，名字只从 布局.mjs 那一处来 */
   .filter(Boolean).map(x => path.resolve(x));
 const 主 = (() => {
   const 项 = process.argv.find(a => a.startsWith('--主仓='));
